@@ -8,9 +8,10 @@ const { Liquid } = pkg
 
 // Hier maak ik een nieuwe Express app aan
 const app = express()
-const engine = new Liquid()
 
-// Hier stel ik de Liquid template engine in als view engine
+// Hier stel ik de view engine in op Liquid, en geef ik de map op waar de templates staan
+const engine = new Liquid()
+app.engine('liquid', engine.express())
 app.set('views', './views')
 app.set('view engine', 'liquid')
 
