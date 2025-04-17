@@ -24,6 +24,7 @@ app.set('view engine', 'liquid')
 app.use(express.static('public'))
 // Maak werken met data uit formulieren iets prettiger
 app.use(express.urlencoded({extended: true}))
+//--------------------------------------------------------------------------------------------------------------------//
 
 // Get route voor de overzichtspagina van de stekjes
 app.get('/', async (req, res) => {
