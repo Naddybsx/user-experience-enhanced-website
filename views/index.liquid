@@ -1,0 +1,60 @@
+{% render 'partials/head.liquid' %}
+{% include 'partials/nav.liquid' %}
+
+<header class="hero">
+    <h1>Stekjes</h1>
+</header>
+
+<main>   
+ <section class="stekjeskast-introductie">
+    <article>
+        <header>
+            <h2>Hoe werkt het?</h2>
+        </header>
+        <p>
+            Bij Buurtcampus Oost kun je de stekjeskast bezoeken om stekjes te ruilen. 
+            Je kunt ook op onze website inzien welke stekjes beschikbaar zijn. 
+            Dit is een geweldige manier voor plantenliefhebbers om met elkaar in contact te komen en planten te delen.
+            Het maakt het gemakkelijk om je favoriete stekjes te vinden en te ruilen met anderen in de buurt, zonder gedoe.
+            Kom langs bij Buurtcampus Oost en ontmoet mede-plantenliefhebbers!
+        </p>
+    </article>
+
+    <section class="carousel-container" aria-label="Stekjeskast afbeeldingen">
+        <div class="carousel">
+            {% comment %} For loop om te itereren door de stekjeskast afbeeldingen data {% endcomment %}
+            {% for afbeelding in afbeeldingen %}
+                <figure class="carousel-item">
+                    <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto }}" alt="Stekjeskast afbeelding">
+                </figure>
+            {% endfor %}
+        </div>
+    </section>
+ </section>
+
+ <section aria-label="Beschikbare stekjes" class="stekjes-section">
+    <h2>Beschikbare stekjes</h2>
+  
+    <ul class="stekjes-carousel" role="list">
+      {% for stekje in stekjes %}
+        <li class="stekje-card">
+          <figure>
+            <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{ stekje.naam }}">
+            <figcaption>
+              <h3>{{ stekje.naam }}</h3>
+              <a href="/stekje/{{ stekje.id }}" class="button">Meer informatie</a>
+            </figcaption>
+          </figure>
+        </li>
+      {% endfor %}
+    </ul>
+  
+    <!-- Carousel buttons (alleen zichtbaar met JS) -->
+    <nav aria-label="Carrousel navigatie" class="carousel-nav" hidden>
+      <button id="prev" aria-label="Vorige stekje">❮</button>
+      <button id="next" aria-label="Volgende stekje">❯</button>
+    </nav>
+  </section>
+  
+</main>
+{% render 'partials/foot.liquid' %}
