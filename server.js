@@ -46,7 +46,16 @@ app.get('/', async (req, res) => {
 
 // GET route voor de detailpagina van een stekje
 app.get('/stekje/:id', async (req, res) => {
-  res.render('stekje.liquid')
+  // Hier haal ik het stekje op met het juiste ID
+  const stekjeId = request.params.id;
+  // Hier doe ik een FETCH naar de API URL, met het ID van het stekje
+  const stekjeResponse = await fetch(`${apiUrl}/${stekjeId}`);
+  // Hier wordt de response omgezet naar JSON
+  const stekjeData = await stekjeResponse.json();
+  
+// Hier render ik de stekjes.liquid template, en geef ik de data(stekje) van de API mee
+  res.render('stekje.liquid', {
+    stekje: stekjeData,
 })
 
 // POST route voor het liken van een stekje
