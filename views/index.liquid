@@ -30,19 +30,15 @@
     </ul>
  </section>
 
- <section aria-label="Beschikbare stekjes" class="stekjes-section">
+ <section class="stekjes-section">
     <h2>Beschikbare stekjes</h2>
   
-    <ul class="stekjes-carousel" role="list">
+    <ul class="stekjes-carousel">
       {% for stekje in stekjes %}
         <li class="stekje-card">
-          <figure>
             <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{ stekje.naam }}">
-            <figcaption>
-              <h3>{{ stekje.naam }}</h3>
-              <a href="/stekje/{{ stekje.id }}" class="button">Meer informatie</a>
-            </figcaption>
-          </figure>
+            <h3>{{ stekje.naam }}</h3>
+            <a href="/stekje/{{ stekje.id }}" class="button">Meer informatie</a>
         </li>
       {% endfor %}
     </ul>
