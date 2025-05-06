@@ -32,6 +32,7 @@ summary {
     align-items: center;
     gap: 1.5rem;
     padding: 4rem 1rem;
+    background: var(--color-primary);
     transform: translateY(-100%);
     transition: transform 0.3s ease;
     z-index: 999;
@@ -79,6 +80,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--text-light);
     position: relative;
     border-bottom-left-radius: 2em;
     border-bottom-right-radius: 2em;
