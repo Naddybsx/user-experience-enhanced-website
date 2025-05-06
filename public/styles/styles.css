@@ -108,30 +108,22 @@ h2 {
     margin-bottom: 1rem;
 }
 
-.stekjeskast-introductie {
+.intro {
     display: grid;
     gap: 1.5rem;
     padding: 2rem;
 }
 
-article {
-    width: 100%;
-}
-
 .carousel-container {
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.carousel {
     display: flex;
     gap: 1rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-padding: 50%;
+    scroll-padding-inline: 50%;
+    padding: 1rem;
+    list-style: none;
     -webkit-overflow-scrolling: touch;
-}
+  }
 
 .carousel-item {
     flex: 0 0 80%;
@@ -150,7 +142,7 @@ article {
 
 /* Desktop: tekst links, carousel rechts */
 @media (min-width: 768px) {
-    .stekjeskast-introductie {
+    .intro {
         grid-template-columns: 1fr 1fr;
         align-items: center;
         text-align: left;
@@ -210,14 +202,6 @@ article {
     margin: 0.5rem 0;
     text-align: left;
 }
-
-.stekje-card figcaption {
-    padding: 0 0.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: space-between;
- }
 
 .button {
     background-color: var(--color-accent);
