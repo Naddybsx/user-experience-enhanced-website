@@ -1,4 +1,15 @@
  /* ========== Nav section (mobile first) ========== */
+ 
+ summary {
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 1001;
+}
+
  .main-nav {
     position: absolute;
     top: 0; left: 0; right: 0;
@@ -10,19 +21,6 @@
     background: transparent;
     backdrop-filter: blur(1px);
 }
-
-summary {
-    color: white;
-    font-size: 2.5rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: relative;
-    z-index: 1001;
-}
-
-#nav-details:not([open]) summary::before { content: "☰"; }
-#nav-details[open] summary::before { content: "x"; }
 
 .nav-menu {
     position: fixed;
@@ -38,10 +36,6 @@ summary {
     z-index: 999;
 }
 
-#nav-details[open] + .nav-menu {
-    transform: translateY(0);
-}
-
 .nav-menu a {
     font-size: 1.25rem;
 }
@@ -49,6 +43,14 @@ summary {
 .nav-menu a:hover {
     color: var(--color-accent);
 }
+
+#nav-details:not([open]) summary::before { content: "☰"; }
+#nav-details[open] summary::before { content: "x"; }
+
+#nav-details[open] + .nav-menu {
+    transform: translateY(0);
+}
+
 
 @media (min-width: 769px) {
     .nav-menu {
