@@ -8,8 +8,9 @@ import pkg from 'liquidjs'
 const { Liquid } = pkg
 
 // Hier definieer ik de API URL's, waar ik data vandaan wil halen, stekjes en stekjeskast-afbeeldingen
-const apiUrl = "https://fdnd-agency.directus.app/items/bib_stekjes";
-const afbeeldingenUrl = "https://fdnd-agency.directus.app/items/bib_afbeeldingen?filter={%20%22type%22:%20{%20%22_eq%22:%20%22stekjes%22%20}}";
+const url = "https://fdnd-agency.directus.app/items/";
+const apiUrl = url + "bib_stekjes";
+const afbeeldingenUrl = url + "bib_afbeeldingen?filter={%20%22type%22:%20{%20%22_eq%22:%20%22stekjes%22%20}}";
 
 // Hier maak ik een nieuwe Express app aan
 const app = express()
@@ -49,7 +50,7 @@ app.get('/', async (req, res) => {
 // GET route voor de detailpagina van een stekje
 app.get('/stekje/:id', async (req, res) => {
   // Hier haal ik het stekje op met het juiste ID
-  const stekjeId = request.params.id;
+  const stekjeId = req.params.id;
   // Hier doe ik een FETCH naar de API URL, met het ID van het stekje
   const stekjeResponse = await fetch(`${apiUrl}/${stekjeId}`);
   // Hier wordt de response omgezet naar JSON
