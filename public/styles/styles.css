@@ -259,3 +259,20 @@ h2 {
         opacity: 0.7 ;
     }
 }
+
+/* ========== Footer section ========== */
+footer {
+    color: var(--color-primary);
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+}
+
+footer a {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+address {
+    font-style: normal;
+}
