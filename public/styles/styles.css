@@ -105,11 +105,23 @@ h1 {
     background: rgba(30, 50, 30, 0.5);
     z-index: -1;
 }
-  }
+
+.scroll-down {
+    position: absolute;
+    bottom: 0;
+    font-size: 1.4rem;
+    background: #2f552594;
+    padding: .2rem 1rem;
+    border-radius: .5rem;
+    border: none;
+}
 
 @media (min-width: 769px) {
     h1 {
       font-size: 4rem;
+    }
+    .hero {
+      height: 70vh;
     }
 }
 
