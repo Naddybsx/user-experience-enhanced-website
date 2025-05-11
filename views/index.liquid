@@ -21,16 +21,23 @@
         <a href="#stekjes" class="button" data-scroll-target="#stekjes">Bekijk stekjes</a>
     </div>
 
+   
+  <div class="carousel-wrapper"> 
     <ul class="carousel-container">
         {% comment %} For loop om te itereren door de stekjeskast afbeeldingen data {% endcomment %}
-        {% for afbeelding in afbeeldingen %}
-            <li class="carousel-item">
-                <figure>
-                    <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto }}" alt="Stekjeskast afbeelding">
-                </figure>
-            </li>
-            {% endfor %}
+      {% for afbeelding in afbeeldingen %}
+        <li class="carousel-item">
+          <figure>
+            <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto }}" alt="Stekjeskast afbeelding">
+          </figure>
+        </li>
+      {% endfor %}
     </ul>
+
+    <p class="scroll-hint">
+        Scroll voor meer →
+     </p>   
+  </div>
  </section>
 
  <section class="stekjes-section" id="stekjes">

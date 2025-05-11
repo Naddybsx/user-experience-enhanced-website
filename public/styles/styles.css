@@ -147,7 +147,7 @@ h2 {
     padding: 1rem;
     list-style: none;
     -webkit-overflow-scrolling: touch;
-  }
+}
 
 .carousel-item {
     flex: 0 0 80%;
@@ -162,6 +162,22 @@ h2 {
     max-width: 500px;
     border-radius: 30px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.28);
+}
+.carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-hint {
+    font-size: 1rem;
+    color: var(--color-primary);
+    opacity: 0.8;
+    animation: fadebounce 2s infinite;
+}
+
+@keyframes fadebounce {
+    0%, 100% { transform: translateX(0); opacity: 0.6; }
+    50% { transform: translateX(6px); opacity: 1; }
 }
 
 /* Desktop: tekst links, carousel rechts */
