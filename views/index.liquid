@@ -28,7 +28,10 @@
       {% for afbeelding in afbeeldingen %}
         <li class="carousel-item">
           <figure>
-            <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto }}" alt="Stekjeskast afbeelding">
+            <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto.id }}"
+            width="{{ afbeelding.foto.width }}"
+            height="{{ afbeelding.foto.height }}"
+            alt="Stekjeskast afbeelding">
           </figure>
         </li>
       {% endfor %}
@@ -46,7 +49,10 @@
     <ul class="stekjes-carousel">
       {% for stekje in stekjes %}
         <li class="stekje-card">
-            <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{ stekje.naam }}">
+            <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}"
+            width="{{ stekje.foto.width }}"
+            height="{{ stekje.foto.height }}"
+            alt="{{ stekje.naam }}">
             <h3>{{ stekje.naam }}</h3>
             <a href="/stekje/{{ stekje.id }}" class="button">Meer informatie</a>
         </li>
