@@ -2,7 +2,11 @@
 {% include 'partials/nav.liquid' %}
 
 <header class="hero">
-    <img src="/assets/bib-hero2.png" alt="">
+    <picture>
+      <source type="image/avif" srcset="/assets/bib-hero2.avif">
+      <source type="image/webp" srcset="/assets/bib-hero2.webp">
+      <img src="/assets/bib-hero2.png" alt="" width="800" height="533">
+    </picture>
     <h1>Stekjes</h1>
 <a href="#intro" class="scroll-down" data-scroll-target="#intro">▼</a>
 </header>
