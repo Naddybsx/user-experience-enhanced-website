@@ -1,9 +1,23 @@
 {% render 'partials/head.liquid' %}
- {% include 'partials/nav.liquid' %}
- {% comment %} Specifiek stekje details {% endcomment %}
- <h1>Stekjes detailpagina</h1>
- <h2>{{stekje.naam}}</h2>
- <p>{{stekje.beschrijving}}</p>
- <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto }}" alt="{{stekje.naam}}">
+{% include 'partials/nav.liquid' %}
 
- {% render 'partials/foot.liquid' %}
+<header class="stekje-hero">
+  <div class="hero-layout">
+    <picture>
+      <source srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=avif&width=600" type="image/avif">
+      <source srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=webp&width=600" type="image/webp">
+      <img
+        src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?width=600"
+        width="{{ stekje.foto.width }}"
+        height="{{ stekje.foto.height }}"
+        alt="{{ stekje.naam }}"
+        >
+    </picture>
+
+     <section class="stekje-hero-content">
+      <h1>{{ stekje.naam }}</h1>
+      <p>Leer meer over deze bijzondere plant</p>
+     </section>
+  </div>
+</header>
+
