@@ -64,9 +64,43 @@ app.get('/stekje/:id', async (req, res) => {
 })
 
 // POST route voor het liken van een stekje
-app.post('/stekje/:id', async (req, res) => {
-res.redirect(303, '/')
-})
+// Hier maak ik een POST route aan voor het liken van een stekje
+app.post('/stekje/:id', async function (request, response) {
+    // Hier haal ik het ID uit de URL
+    const stekjeId = request.params.id;
+    // Dit is hardcoded mijn eigen user ID
+    const userId = 4;
+    
+    // Hiermee check ik of een stekje al is geliked door mij als user, zodat ik kan bepalen of ik een like wil toevoegen of verwijderen
+    const userstekjeEntry = await fetch(`https://fdnd-agency.directus.app/items/bib_users_stekjes?filter={"bib_stekjes_id":${stekjeId},"bib_users_id":${userId}}`)
+    const userstekjeEntryJSON = await userstekjeEntry.json()
+    
+    // Als de like al bestaat → verwijder de like (unlike)
+    
+    if (userstekjeEntryJSON.data.length != 0) { // Als de like al bestaat, dan is de lengte van de array niet 0
+      await fetch(`https://fdnd-agency.directus.app/items/bib_users_stekjes/${userstekjeEntryJSON.data[0].id}`, { // Ik doe een fetch naar de koppeltabel waar ik mijn likes wil verwijderen
+        method: 'DELETE' // Met delete wil ik een like verwijderen uit de database, dus ik gebruik de DELETE methode
+      });
+    } else {
+      // Als de like nog niet bestaat → voeg de like toe en verstuur een POST naar de koppeltabel om de like op te slaan
+    
+     await fetch('https://fdnd-agency.directus.app/items/bib_users_stekjes', {  // Ik doe een fetch naar het koppeltabel waar ik mijn likes wil opslaan
+        method: 'POST',  // Met post wil ik een like toevoegen aan de database, dus ik gebruik de POST methode
+        headers: {   // Met headers weet de server dat ik JSON data ga sturen
+          'Content-Type': 'application/json' 
+        },
+    // De inhoud van de post(like) voeg je toe in de body
+    // Hier maak ik twee objecten aan, bib_users_id en bib_stekjes_id
+        body: JSON.stringify({
+          bib_users_id: userId, // Wie liked? (bib_users_id)
+          bib_stekjes_id: stekjeId // Welk stekje wordt geliked? (bib_stekjes_id)
+    // Met request.params.id worden de waarden dynamisch ingevuld
+        })
+      });
+    }
+      // Stuurt de gebruiker terug naar de detailpagina van het stekje
+      response.redirect(303, `/stekje/${stekjeId}`);
+    });
 
 //--------------------------------------------------------------------------------------------------------------------//
 // Hier stel ik de poort in waarop de app draait, en start ik de server
