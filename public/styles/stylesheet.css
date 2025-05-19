@@ -55,6 +55,11 @@ body {
     --global-transition: all 0.3s ease-in-out;
     --global-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
+    --border-radius-lg: 2rem;
+    --border-radius-md: 1.5rem;
+    --border-radius-sm: 1rem;
+    --global-padding: 1rem;
+
     background-color: var(--color-secondary);
     color: var(--text-dark);
 }
