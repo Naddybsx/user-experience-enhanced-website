@@ -31,12 +31,18 @@
         {% comment %} For loop om te itereren door de stekjeskast afbeeldingen data {% endcomment %}
       {% for afbeelding in afbeeldingen %}
         <li class="carousel-item">
-          <figure>
-            <img src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto.id }}"
-            width="{{ afbeelding.foto.width }}"
-            height="{{ afbeelding.foto.height }}"
-            alt="Stekjeskast afbeelding">
-          </figure>
+          <picture>
+            <source srcset="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto.id }}?format=avif&width=800" type="image/avif">
+            <source srcset="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto.id }}?format=webp&width=800" type="image/webp">
+            <img
+              src="https://fdnd-agency.directus.app/assets/{{ afbeelding.foto.id }}?width=800"
+              width="{{ afbeelding.foto.width }}"
+              height="{{ afbeelding.foto.height }}"
+              alt="Stekjeskast afbeelding"
+              loading="lazy"
+              style="background-color: #e3e0e0;"
+              >
+          </picture>
         </li>
       {% endfor %}
     </ul>
@@ -53,10 +59,18 @@
     <ul class="stekjes-carousel">
       {% for stekje in stekjes %}
         <li class="stekje-card">
-            <img src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}"
-            width="{{ stekje.foto.width }}"
-            height="{{ stekje.foto.height }}"
-            alt="{{ stekje.naam }}">
+          <picture>
+            <source srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=avif&width=600" type="image/avif">
+            <source srcset="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?format=webp&width=600" type="image/webp">
+            <img
+              src="https://fdnd-agency.directus.app/assets/{{ stekje.foto.id }}?width=600"
+              width="{{ stekje.foto.width }}"
+              height="{{ stekje.foto.height }}"
+              alt="{{ stekje.naam }}"
+              loading="lazy"
+              style="background-color: #e3e0e0;"
+              >
+          </picture>
             <h3>{{ stekje.naam }}</h3>
             <a href="/stekje/{{ stekje.id }}" class="button">Meer informatie</a>
         </li>
