@@ -21,3 +21,46 @@
   </div>
 </header>
 
+ <article class="stekje-info">
+    <h2>{{ stekje.naam }}</h2>
+    <p>{{ stekje.beschrijving }}</p>
+
+    <div class="accordion-wrapper">
+      <details class="accordion">
+        <summary>🌍 Land van herkomst</summary>
+        <p>{{ stekje.land_van_herkomst }}</p>
+      </details>
+
+      <details class="accordion">
+        <summary>🌞 Zonlicht</summary>
+        <p>{{ stekje.zonlicht }}</p>
+      </details>
+
+      <details class="accordion">
+        <summary>💧 Waterbehoefte</summary>
+        <p>{{ stekje.watergeven }}</p>
+      </details>
+
+      <details class="accordion">
+        <summary>🍽️ Voeding</summary>
+        <p>{{ stekje.voeding }}</p>
+      </details>
+
+      <details class="accordion">
+        <summary>🌱 Verpotten</summary>
+        <p>{{ stekje.verpotten }}</p>
+      </details>
+
+      <details class="accordion">
+        <summary>🌡️ Temperatuur</summary>
+        <p>{{ stekje.temperatuur }}</p>
+      </details>
+
+      <details class="accordion">
+        <summary>☠️ Giftigheid</summary>
+        <p>{{ stekje.giftigheid }}</p>
+      </details>
+    </div>
+  </article>
+
+{% render 'partials/foot.liquid' %} 
