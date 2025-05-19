@@ -461,3 +461,37 @@ address {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+.notification {
+    position: fixed;
+    top: var(--global-padding);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--global-padding) 1.5rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: bold;
+    font-family: var(--font-paragraph);
+    font-size: 1rem;
+    max-width: 90%;
+    text-align: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+  
+.notification.success {
+    background-color: var(--color-secondary);
+    color: var(--color-primary-dark);
+    border: 2px dashed var(--color-primary);
+}
+  
+.notification.error {
+    background-color: #dc3545;
+    color: #fff;
+    border: 2px solid #b71c1c;
+}
+
+.notification.hidden {
+    opacity: 0;
+    pointer-events: none;
+}

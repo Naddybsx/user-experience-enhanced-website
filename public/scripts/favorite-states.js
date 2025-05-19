@@ -33,3 +33,26 @@ function submitLike(event) {
       });
   }
 
+  // functie om een melding te tonen
+  function toonMelding(tekst, isFout) {
+    // Pak het notificatie element
+    const melding = document.getElementById('notification');
+  
+    // Zet de nieuwe tekst erin, afhankelijk van de actie
+    melding.textContent = tekst;
+  
+    // Reset alle relevante classes in één keer
+    melding.classList.remove('hidden', 'success', 'error');
+  
+    // Voeg of error of success toe
+    if (isFout) {
+      melding.classList.add('error');
+    } else {
+      melding.classList.add('success');
+    }
+
+    // Na 3 seconden melding weer verbergen
+    setTimeout(function() {
+      melding.classList.add('hidden');
+    }, 3000);
+}
