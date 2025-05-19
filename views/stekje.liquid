@@ -61,6 +61,19 @@
         <p>{{ stekje.giftigheid }}</p>
       </details>
     </div>
+
+    <footer class="like-footer">
+        <p>🌿 Vond je dit stekje interessant? Voeg het toe aan je favorieten!</p>
+
+        <div id="notification" class="notification hidden"></div>
+      
+        <form class="like-form" action="/stekje/{{ stekje.id }}" onsubmit="submitLike(event)">
+          <button type="submit" class="submit-button">
+            <span class="button-text">❤️ Toevoegen aan favorieten</span>
+            <span class="loader" hidden></span>
+          </button>
+        </form>
+      </footer>
   </article>
 
 {% render 'partials/foot.liquid' %} 
