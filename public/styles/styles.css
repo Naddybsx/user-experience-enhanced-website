@@ -412,4 +412,52 @@ address {
     to   { opacity: 1; transform: translateY(0);  }
 }
 
+.like-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--global-padding);
+    border-top: 1px dashed var(--color-primary);
+    padding-top: var(--global-padding);
+}
   
+.like-footer [hidden] {
+    display: none;
+}
+  
+@media (min-width: 768px) {
+    .like-footer {
+      flex-direction: row;
+      justify-content: center;
+    }
+}
+
+.like-footer button {
+    font-size: 1.25rem;
+    background: none;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--border-radius-md);
+    transition: background 0.3s ease;
+}
+  
+.like-footer button:hover {
+    background: var(--color-accent);
+    color: var(--text-light);
+}
+
+.loader {
+    width: 1em;
+    height: 1em;
+    border: 2px solid transparent;
+    border-top: 2px solid var(--color-accent);
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.6s linear infinite;
+    margin-left: 0.5rem;
+}
+  
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
